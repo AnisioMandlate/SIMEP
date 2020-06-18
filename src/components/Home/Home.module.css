@@ -1,0 +1,34 @@
+.home {
+  display: grid;
+  gap: 40px;
+  height: 100%;
+  grid-template-columns: repeat(auto-fill, 290px);
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.home div {
+  background-color: #fff;
+  padding: 55px 30px 10px;
+}
+
+.home img {
+  width: 140px;
+  transition: 0.3s ease;
+}
+
+.home .link {
+  text-decoration: none;
+  color: black;
+  transition: ease 0.5s;
+}
+
+.home .link:hover img {
+  transform: scale(1.1);
+  /* box-shadow: rgb(181, 181, 181) 3px 3px 3px 3px; */
+}
+
+.home .link hr {
+  border-top: 1px solid #adb1a9;
+}
