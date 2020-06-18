@@ -7,12 +7,14 @@ const Profile = () => {
     <div className={styles.profile}>
       <div className={styles["profile-card"]}>
         <h3>Perfil</h3>
+        <hr />
         <div className={styles["card-content"]}>
-          <div>
+          <div className={styles["profile-pic"]}>
             <img src={profilePic} alt="Foto de Perfil" />
             <p>Director de Operações</p>
             <h4>Administrador de Sistema</h4>
           </div>
+          <hr />
           <div>
             <p>Nome do Utilizador</p>
             <p>Direcção</p>
@@ -21,13 +23,13 @@ const Profile = () => {
             <p>Contacto</p>
             <p>Senha</p>
           </div>
-          <div>
-            <p>Nome do Utilizador</p>
-            <p>Direcção</p>
-            <p>Departamento</p>
-            <p>Email</p>
-            <p>Contacto</p>
-            <p>Senha</p>
+          <div className={styles["user-data"]}>
+            <p>Pedro das Neves Pinto</p>
+            <p>Recursos Materiais</p>
+            <p>Projectos e Tecnologias</p>
+            <p>pedro.pinto@mophr.gov.mz</p>
+            <p>(+258) 846239715</p>
+            <p className={styles.senha}>Alterar Senha</p>
           </div>
         </div>
       </div>
