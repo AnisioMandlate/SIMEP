@@ -5,6 +5,9 @@ import Header from "./components/Header/Header";
 import Notification from "./components/Notifications/Notification";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
+import User from "./components/Users/User";
+import Building from "./components/Buildings/Building";
+import Statistic from "./components/Statistics/Statistic";
 
 function App() {
   return (
@@ -13,9 +16,12 @@ function App() {
         <Header />
         <div className="content">
           <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/notifications" component={Notification} />
-            <Route path="/profile" component={Profile} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/users" component={User} />
+            <Route exact path="/buildings" component={Building} />
+            <Route exact path="/statistics" component={Statistic} />
+            <Route exact path="/notifications" component={Notification} />
+            <Route exact path="/profile" component={Profile} />
           </Switch>
         </div>
 

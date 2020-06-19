@@ -8,14 +8,14 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className={styles.home}>
-      <Link to="../Buildings/Building.js" className={styles.link}>
+      <Link to="/buildings" className={styles.link}>
         <div>
           <img src={buildings} alt="Gestão de Edifícios" />
           <hr />
           <p>Gestão de Edifícios</p>
         </div>
       </Link>
-      <Link to="../Statistics/Statistic.js" className={styles.link}>
+      <Link to="/statistics" className={styles.link}>
         <div>
           <img src={pieChart} alt="Estatísticas" />
           <hr />
@@ -23,7 +23,7 @@ const Home = () => {
         </div>
       </Link>
 
-      <Link to="../Users/User.js" className={styles.link}>
+      <Link to="/users" className={styles.link}>
         <div>
           <img src={users} alt="Gestão de utilizadores" />
           <hr />

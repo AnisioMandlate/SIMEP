@@ -1,0 +1,72 @@
+.user {
+  height: 100%;
+  background-color: #f5f5f5;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+h3 {
+  padding: 40px 80px 0;
+}
+
+.user-content {
+  margin: 0 auto;
+  display: block;
+}
+
+.user-cards {
+  width: 85%;
+  margin: 50px auto 0;
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  justify-items: center;
+}
+
+.user-card {
+  padding: 20px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 12px 1px;
+  border-radius: 5px;
+  min-height: 200px;
+  min-width: 300px;
+  cursor: pointer;
+  transition: ease 0.5s;
+  background-color: #fff;
+}
+
+.user-card h4 {
+  margin: 3px 0 0;
+}
+
+.userPic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.user-card:hover {
+  transform: scale(1.1);
+}
+
+.cargo,
+.direccao {
+  margin: 8px 0;
+}
+
+.direccao {
+  font-size: 0.9em;
+}
+
+.icons {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.icons img {
+  width: 18px;
+}
