@@ -1,0 +1,50 @@
+.page {
+  display: flex;
+  justify-content: center;
+}
+
+/* .container {
+  height: 300px;
+} */
+
+.heading {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.img-holder {
+  margin-top: 1rem;
+}
+
+.img {
+  width: 200px;
+  border-radius: 20px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.label {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.image-upload {
+  width: 150px;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  background-color: #0fb30fb8;
+  text-align: center;
+  cursor: pointer;
+  align-items: center;
+  border: none;
+}
+
+.image-upload h5 {
+  margin: 0;
+}

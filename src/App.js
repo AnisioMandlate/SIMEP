@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer";
 import User from "./components/Users/User";
 import Building from "./components/Buildings/Building";
 import Statistic from "./components/Statistics/Statistic";
+import AddUser from "./components/Users/AddUser";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/users" component={User} />
+            <Route exact path="/addUser" component={AddUser} />
             <Route exact path="/buildings" component={Building} />
             <Route exact path="/statistics" component={Statistic} />
             <Route exact path="/notifications" component={Notification} />
