@@ -44,11 +44,22 @@ const AddUser = () => {
               required
             />
             <Select
-              default="Perfil do Utilizador"
-              option1="Director de Operações"
-              option2="Técnico de Operações"
-              option3="Gestor de Projectos Sénior"
-              option4="Gestor de Projectos de Terceiros"
+              placeholder="Perfil do Utilizador"
+              options={[
+                {
+                  name: "Director de Operações",
+                  value: "director de operações",
+                },
+                { name: "Técnico de Operações", value: "técnico de operações" },
+                {
+                  name: "Gestor de Projectos Sénior",
+                  value: "gestor de projectos sénior",
+                },
+                {
+                  name: "Gestor de Projectos de Terceiros",
+                  value: "gestor de projectos de terceiros",
+                },
+              ]}
             />
           </div>
           <div className={styles["form-column"]}>

@@ -1,13 +1,16 @@
 import React from "react";
 
-const Select = (props) => {
+const Select = ({ placeholder, options }) => {
   return (
     <select>
-      <option>{props.default}</option>
-      <option>{props.option1}</option>
-      <option>{props.option2}</option>
-      <option>{props.option3}</option>
-      <option>{props.option4}</option>
+      <option disabled selected>
+        {placeholder}
+      </option>
+      {options.map((option, i) => (
+        <option key={`${option.value} - ${i}`} value={option.value}>
+          {option.name}
+        </option>
+      ))}
     </select>
   );
 };
