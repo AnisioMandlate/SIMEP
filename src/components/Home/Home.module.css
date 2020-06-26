@@ -2,7 +2,7 @@
   display: grid;
   gap: 40px;
   height: 100%;
-  grid-template-columns: repeat(auto-fill, 290px);
+  grid-template-columns: repeat(auto-fit, 290px);
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -30,5 +30,8 @@
 }
 
 .home .link hr {
-  border-top: 1px solid #adb1a9;
+  border: 0;
+  height: 1px;
+  background: #adb1a9;
+  width: 96%;
 }
