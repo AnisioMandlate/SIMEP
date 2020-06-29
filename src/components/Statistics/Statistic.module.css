@@ -1,0 +1,38 @@
+.statistic {
+  background-color: #fff;
+}
+
+.statistic hr {
+  border: 0;
+  height: 1px;
+  background: #92b974;
+  width: 98%;
+}
+
+.print {
+  padding: 5px 10px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.print button {
+  background: #92b974;
+  border: none;
+  border-radius: 5px;
+  padding: 4px;
+  width: 89px;
+}
+
+.print img {
+  width: 27px;
+}
+
+.graphs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.graphs h5 {
+  margin: 20px 8px 10px;
+}
