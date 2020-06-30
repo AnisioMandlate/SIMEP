@@ -1,0 +1,26 @@
+.notification {
+  background-color: #fff;
+  width: 100%;
+}
+
+.notification hr {
+  border: 0;
+  height: 1px;
+  background: #92b974;
+  width: 100%;
+}
+
+.notification-header {
+  padding: 0 10px;
+}
+
+.notification-header,
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.options p {
+  margin: 0 50px;
+}
