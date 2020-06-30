@@ -1,5 +1,6 @@
 .building {
   background-color: #fff;
+  width: 100%;
 }
 
 .building-header,
@@ -12,6 +13,7 @@
 
 .building-content {
   align-items: unset;
+  padding-bottom: 20px;
 }
 
 .building hr {

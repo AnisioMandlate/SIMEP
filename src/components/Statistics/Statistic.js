@@ -74,7 +74,9 @@ class Statistic extends Component {
                 ["Outros Edificios", 9],
               ]}
               options={{
-                legend: "bottom",
+                legend: {
+                  position: "bottom",
+                },
               }}
               rootProps={{ "data-testid": "1" }}
             />
