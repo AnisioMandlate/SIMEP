@@ -15,7 +15,7 @@ class Statistic extends Component {
         <hr />
         <div className={styles.graphs}>
           <div>
-            <h5>Tipo de Edificio</h5>
+            <h5>Tipo de Edifício</h5>
             <hr />
             <Chart
               width={"300px"}
@@ -24,11 +24,11 @@ class Statistic extends Component {
               loader={<div>Loading Chart</div>}
               data={[
                 ["Building", "Quantity"],
-                ["Edificio Administrativo", 10],
-                ["Edificio Escolar", 2],
-                ["Edificio Desportivo", 2],
-                ["Edificio Hospital", 2],
-                ["Outros Edificios", 7],
+                ["Edifício Administrativo", 10],
+                ["Edifício Escolar", 2],
+                ["Edifício Desportivo", 2],
+                ["Edifício Hospital", 2],
+                ["Outros Edifícios", 7],
               ]}
               options={{
                 legend: "bottom",
@@ -37,7 +37,7 @@ class Statistic extends Component {
             />
           </div>
           <div>
-            <h5>Distribuicao de Edificios por Tipo de Parede</h5>
+            <h5>Distribuição de Edifícios por Tipo de Parede</h5>
             <hr />
             <Chart
               width={"300px"}
@@ -46,8 +46,8 @@ class Statistic extends Component {
               loader={<div>Loading Chart</div>}
               data={[
                 ["Material", "Number of materials"],
-                ["Bloco de Betao", 11],
-                ["Tijolo Ceramico", 6],
+                ["Bloco de Betão", 11],
+                ["Tijolo Cerâmico", 6],
                 ["Madeira e Zinco", 8],
                 ["Outro", 7],
               ]}
@@ -58,7 +58,7 @@ class Statistic extends Component {
             />
           </div>
           <div>
-            <h5>Distribuicao por Tipo de Pavimento</h5>
+            <h5>Distribuição por Tipo de Pavimento</h5>
             <hr />
             <Chart
               width={"300px"}
@@ -67,11 +67,11 @@ class Statistic extends Component {
               loader={<div>Loading Chart</div>}
               data={[
                 ["Building", "Number of Buildings"],
-                ["Edificio Administrativo", 11],
-                ["Edificio Escolar", 5],
-                ["Edificio Desportivo", 4],
-                ["Edificio Hospital", 2],
-                ["Outros Edificios", 9],
+                ["Edifício Administrativo", 11],
+                ["Edifício Escolar", 5],
+                ["Edifício Desportivo", 4],
+                ["Edifício Hospital", 3],
+                ["Outros Edifícios", 9],
               ]}
               options={{
                 legend: {
