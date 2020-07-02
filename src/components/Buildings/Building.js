@@ -87,7 +87,7 @@ const Building = () => {
         </div>
         <div className={styles.buildings}>
           <h3>Edifícios</h3>
-          <hr />
+          <hr className={styles["horizontal-line"]} />
           <div className={styles["grid-cards"]}>
             <div className={styles["grid-card"]}>
               <img src={school} alt="Escola" />

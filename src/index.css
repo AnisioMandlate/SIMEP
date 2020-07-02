@@ -22,4 +22,7 @@ code {
 
 .content {
   padding: 30px 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
