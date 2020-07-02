@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./User.module.css";
+import styles from "./UsersList.module.css";
 import userPic from "../../assets/profile-pic.jpg";
 import deleteIcon from "../../assets/delete.svg";
 import editIcon from "../../assets/edit.svg";
@@ -10,7 +10,7 @@ const User = () => {
   return (
     <div className={styles.user}>
       <div className={styles["user-content"]}>
-        <h3>Total de Usuários: 6</h3>
+        <h3 className={styles["user-heading"]}>Total de Utilizadores: 6</h3>
         <div className={styles["user-cards"]}>
           <div className={styles["user-card"]}>
             <img src={userPic} alt="User" className={styles.userPic} />

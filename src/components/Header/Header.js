@@ -16,18 +16,36 @@ const Header = () => {
       </div>
       <nav className={styles.menu}>
         <ul>
-          <Link to="/notifications" className={styles.link}>
-            <img src={bell} alt="Bell Notification" className={styles.icons} />
-            <li>Notificações</li>
-          </Link>
-          <Link to="/profile" className={styles.link}>
-            <img src={profile} alt="Profile" className={styles.icons} />
-            <li>Perfil</li>
-          </Link>
-          <Link to="/notifications" className={styles.link}>
-            <img src={logout} alt="Logout" className={styles.icons} />
-            <li>Sair</li>
-          </Link>
+          <li>
+            <Link to="/notifications" className={styles.link}>
+              <img
+                src={bell}
+                alt="Bell Notification"
+                className={styles.icons}
+              />
+              Notificações
+            </Link>
+          </li>
+          <li>
+            <Link to="/profile" className={styles.link}>
+              <img
+                src={profile}
+                alt="Bell Notification"
+                className={styles.icons}
+              />
+              Perfil
+            </Link>
+          </li>
+          <li>
+            <Link to="/notifications" className={styles.link}>
+              <img
+                src={logout}
+                alt="Bell Notification"
+                className={styles.icons}
+              />
+              Sair
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
