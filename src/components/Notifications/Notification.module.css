@@ -1,6 +1,7 @@
 .notification {
   background-color: #fff;
   width: 100%;
+  padding: 3px 20px;
 }
 
 .notification hr {
@@ -10,10 +11,6 @@
   width: 100%;
 }
 
-.notification-header {
-  padding: 0 10px;
-}
-
 .notification-header,
 .options {
   display: flex;
@@ -21,6 +18,21 @@
   justify-content: space-between;
 }
 
-.options p {
-  margin: 0 50px;
+.notification-header p {
+  margin: 8px 15px;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.message img {
+  width: 25px;
+}
+
+.message p,
+.message h4 {
+  margin: 8px 0;
 }
