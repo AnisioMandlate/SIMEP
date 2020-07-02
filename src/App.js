@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import Notification from "./components/Notifications/Notification";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
-import User from "./components/Users/User";
+import Users from "./components/Users/UsersList";
 import Building from "./components/Buildings/Building";
 import Statistic from "./components/Statistics/Statistic";
 import AddUser from "./components/Users/AddUser";
@@ -18,7 +18,7 @@ function App() {
         <div className="content">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/users" component={User} />
+            <Route exact path="/users" component={Users} />
             <Route exact path="/addUser" component={AddUser} />
             <Route exact path="/buildings" component={Building} />
             <Route exact path="/statistics" component={Statistic} />

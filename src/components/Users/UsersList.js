@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./User.module.css";
+import styles from "./UsersList.module.css";
 import userPic from "../../assets/profile-pic.jpg";
 import deleteIcon from "../../assets/delete.svg";
 import editIcon from "../../assets/edit.svg";
