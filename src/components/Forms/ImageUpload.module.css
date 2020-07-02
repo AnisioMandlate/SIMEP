@@ -2,12 +2,6 @@
   display: flex;
   justify-content: center;
 }
-.heading {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-top: 1rem;
-  font-weight: bold;
-}
 
 .img-holder {
   margin-top: 1rem;
