@@ -18,12 +18,12 @@
   justify-content: space-between;
 }
 
-.notification-header p {
-  margin: 8px 15px;
+.options p {
+  margin: 8px 45px;
 }
 
 .notification-para {
-  margin: 0 !important;
+  margin: 0;
 }
 
 table {

@@ -3,6 +3,7 @@ import styles from "./Notification.module.css";
 import deleteIcon from "../../assets/delete.svg";
 import mail from "../../assets/mail.svg";
 import readMail from "../../assets/read-mail.svg";
+import Checkbox from "../Forms/Checkbox";
 
 const Notification = () => {
   return (
@@ -12,7 +13,8 @@ const Notification = () => {
           <p className={styles["notification-para"]}>05 Notificações</p>
         </div>
         <div className={styles.options}>
-          <p>Selecionar</p>
+          <Checkbox />
+          <label>Selecionar</label>
           <p>Filtrar</p>
         </div>
       </div>
