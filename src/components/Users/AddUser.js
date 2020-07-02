@@ -2,17 +2,17 @@ import React from "react";
 import Input from "../Forms/Input";
 import styles from "./AddUser.module.css";
 import Select from "../Forms/Select";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import ImageUpload from "../Forms/ImageUpload";
 
 const AddUser = () => {
-  function handleSubmit() {
-    console.log("I'm being submited");
+  function handleClick() {
+    console.log("I was cleared");
   }
 
   return (
     <div className={styles.geral}>
-      <form onSubmit={handleSubmit}>
+      <form id="user-form">
         <div className={styles.addUser}>
           <div className={styles["form-column"]}>
             <Input
@@ -95,9 +95,10 @@ const AddUser = () => {
           <ImageUpload />
         </div>
         <div className={styles.buttons}>
-          <Link to="/users">
-            <button className={styles["cancel-button"]}>Cancelar</button>
-          </Link>
+          <button className={styles["cancel-button"]} onClick={handleClick()}>
+            Cancelar
+          </button>
+
           <button type="submit" className={styles["add-button"]}>
             Registar
           </button>
