@@ -4,6 +4,7 @@ import deleteIcon from "../../assets/delete.svg";
 import mail from "../../assets/mail.svg";
 import readMail from "../../assets/read-mail.svg";
 import Checkbox from "../Forms/Checkbox";
+import Select from "../Forms/Select";
 
 const Notification = () => {
   return (
@@ -15,7 +16,13 @@ const Notification = () => {
         <div className={styles.options}>
           <Checkbox />
           <label>Selecionar</label>
-          <p>Filtrar</p>
+          <Select
+            placeholder="Filtrar"
+            options={[
+              { name: "Mensagens Lidas", value: "mensangens lidas" },
+              { name: "Mensagens Não Lidas", value: "mensagens não lidas" },
+            ]}
+          />
         </div>
       </div>
       <hr />

@@ -22,6 +22,12 @@
   margin: 8px 45px;
 }
 
+.options select {
+  padding: 8px;
+  max-width: 90px;
+  margin: 4px 0 4px 15px;
+}
+
 .notification-para {
   margin: 0;
 }
