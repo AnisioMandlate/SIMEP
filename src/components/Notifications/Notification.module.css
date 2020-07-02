@@ -22,17 +22,23 @@
   margin: 8px 15px;
 }
 
-.message {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.notification-para {
+  margin: 0 !important;
 }
 
-.message img {
+table {
+  width: 100%;
+}
+
+td {
+  padding: 0 20px;
+}
+
+.icons {
   width: 25px;
 }
 
-.message p,
-.message h4 {
+td p,
+td h4 {
   margin: 8px 0;
 }
