@@ -92,9 +92,7 @@ const AddUser = () => {
               required
             />
           </div>
-          <div className={styles["form-column"]}>
-            <ImageUpload />
-          </div>
+          <ImageUpload />
         </div>
         <div className={styles.buttons}>
           <Link to="/users">
