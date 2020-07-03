@@ -13,11 +13,18 @@ const Notification = () => {
     getNotifications().then((result) => setNotification(result));
   }, []);
 
+  const handleClick = () => {
+    alert("I was clicked");
+  };
+
   return (
     <div className={styles.notification}>
       <div className={styles["notification-header"]}>
         <div>
-          <p className={styles["notification-para"]}>05 Notificações</p>
+          <p className={styles["notification-para"]}>
+            {notifica.length}{" "}
+            {notifica.length !== 1 ? `Notificações` : `Notificação`}{" "}
+          </p>
         </div>
         <div className={styles.options}>
           <Checkbox />
@@ -55,6 +62,7 @@ const Notification = () => {
                     src={deleteIcon}
                     alt="Deletar mensagem"
                     className={styles.icons}
+                    onClick={handleClick}
                   />
                 </td>
               </tr>

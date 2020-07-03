@@ -43,6 +43,7 @@ td {
 
 .icons {
   width: 25px;
+  cursor: pointer;
 }
 
 td p,
