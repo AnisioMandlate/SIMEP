@@ -2,6 +2,7 @@
   background-color: #fff;
   width: 100%;
   padding: 3px 20px;
+  align-self: start;
 }
 
 .notification hr {
@@ -46,5 +47,5 @@ td {
 
 td p,
 td h4 {
-  margin: 8px 0;
+  margin: 15px 0;
 }

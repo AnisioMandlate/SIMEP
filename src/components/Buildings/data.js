@@ -4,21 +4,21 @@ import administrative from "../../assets/administrative.jpg";
 
 export const Buildings = [
   {
-    id: "isjbmysdgfsdiofsdf",
+    id: "1",
     name: "Escola S. Josina Machel",
     location: "Bairro Albazine A",
     type: "Escola",
     image: school,
   },
   {
-    id: "-889238764234jksdf",
+    id: "2",
     name: "Edificio Municipal",
     location: "Bairro Central",
     type: "Administrativo",
     image: administrative,
   },
   {
-    id: "o9876rdfghjmn_vfghjkygfd",
+    id: "3",
     name: "Hospital Central de Maputo",
     location: "Bairro do Museu",
     type: "Hospital",

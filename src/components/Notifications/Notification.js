@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Notification.module.css";
 import deleteIcon from "../../assets/delete.svg";
-import mail from "../../assets/mail.svg";
-import readMail from "../../assets/read-mail.svg";
 import Checkbox from "../Forms/Checkbox";
 import Select from "../Forms/Select";
 
+import { getNotifications } from "./services";
+
 const Notification = () => {
+  const [notifica, setNotification] = useState([]);
+
+  useEffect(() => {
+    getNotifications().then((result) => setNotification(result));
+  }, []);
+
   return (
     <div className={styles.notification}>
       <div className={styles["notification-header"]}>
@@ -29,7 +35,32 @@ const Notification = () => {
       <div className={styles["notification-body"]}>
         <table>
           <tbody>
-            <tr>
+            {notifica.map((notificas) => (
+              <tr key={notificas.id}>
+                <td>
+                  <img
+                    src={notificas.state}
+                    alt="Message"
+                    className={styles.icons}
+                  />
+                </td>
+                <td>
+                  <h4>{notificas.title}</h4>
+                  <p> {notificas.message} </p>
+                </td>
+                <td>{notificas.date}</td>
+                <td>{notificas.time}</td>
+                <td>
+                  <img
+                    src={deleteIcon}
+                    alt="Deletar mensagem"
+                    className={styles.icons}
+                  />
+                </td>
+              </tr>
+            ))}
+
+            {/* <tr>
               <td>
                 <img src={mail} alt="Message" className={styles.icons} />
               </td>
@@ -133,7 +164,7 @@ const Notification = () => {
                   className={styles.icons}
                 />
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
       </div>
