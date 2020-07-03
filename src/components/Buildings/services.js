@@ -4,7 +4,7 @@ export const getBuildings = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(Buildings);
-    }, 3000);
+    }, 2000);
   });
 };
 
@@ -13,7 +13,7 @@ export const getBuildingById = (id) => {
     setTimeout(() => {
       const building = Buildings.filter((build) => id === build.id)[0];
       resolve(building);
-    }, 3000);
+    }, 2000);
   });
 };
 
