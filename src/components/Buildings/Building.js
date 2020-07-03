@@ -1,20 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Building.module.css";
 import Input from "../Forms/Input";
 import Select from "../Forms/Select";
-import hospital from "../../assets/hospital.jpeg";
-import garden from "../../assets/garden.jpg";
-import monument from "../../assets/monumental.jpg";
-import monumental2 from "../../assets/monumental2.jpeg";
-import school from "../../assets/school.jpeg";
-import administrative from "../../assets/administrative.jpg";
+
+import { getBuildings, getBuildingByName } from "./services";
 
 const Building = () => {
+  const [buildings, setBuildings] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    getBuildings().then((result) => setBuildings(result));
+  }, []);
+
+  const handleSearch = (event) => {
+    const { value } = event.target;
+    getBuildingByName(value).then((builds) => setBuildings(builds));
+    setSearchInput(value);
+  };
+
   return (
     <div className={styles.building}>
       <div className={styles["building-header"]}>
-        <p>300 Edifícios registados</p>
-        <Input name="search" type="search" placeholder="Pesquisar Edificio" />
+        <p>
+          {buildings.length}{" "}
+          {buildings.length !== 1
+            ? `Edifícios registados`
+            : `Edifício registado`}{" "}
+        </p>
+        <Input
+          name="search"
+          value={searchInput}
+          onChange={handleSearch}
+          type="search"
+          placeholder="Pesquisar Edificio"
+        />
       </div>
       <hr />
       <div className={styles["building-content"]}>
@@ -89,54 +109,16 @@ const Building = () => {
           <h3>Edifícios</h3>
           <hr className={styles["horizontal-line"]} />
           <div className={styles["grid-cards"]}>
-            <div className={styles["grid-card"]}>
-              <img src={school} alt="Escola" />
-              <h5>Escola S. Josina Machel</h5>
-              <div className={styles["grid-footer"]}>
-                <p id="escola">Escola</p>
-                <p>Bairro Albazine A</p>
+            {buildings.map((build) => (
+              <div key={build.id} className={styles["grid-card"]}>
+                <img src={build.image} alt="Escola" />
+                <h5>{build.name}</h5>
+                <div className={styles["grid-footer"]}>
+                  <p id="escola">{build.type}</p>
+                  <p>{build.location}</p>
+                </div>
               </div>
-            </div>
-            <div className={styles["grid-card"]}>
-              <img src={administrative} alt="Escola" />
-              <h5>Edificio Municipal</h5>
-              <div className={styles["grid-footer"]}>
-                <p id="administrativo">Administrativo</p>
-                <p>Bairro Central</p>
-              </div>
-            </div>
-            <div className={styles["grid-card"]}>
-              <img src={hospital} alt="Escola" />
-              <h5>Hospital Central de Maputo</h5>
-              <div className={styles["grid-footer"]}>
-                <p id="hospital">Hospital</p>
-                <p>Bairro do Museu</p>
-              </div>
-            </div>
-            <div className={styles["grid-card"]}>
-              <img src={garden} alt="Escola" />
-              <h5>Jardim dos Professores</h5>
-              <div className={styles["grid-footer"]}>
-                <p id="jardim">Jardim</p>
-                <p>Bairro do Museu</p>
-              </div>
-            </div>
-            <div className={styles["grid-card"]}>
-              <img src={monument} alt="Escola" />
-              <h5>Fortaleza de Maputo</h5>
-              <div className={styles["grid-footer"]}>
-                <p id="monumento">Monumento</p>
-                <p>Bairro Central</p>
-              </div>
-            </div>
-            <div className={styles["grid-card"]}>
-              <img src={monumental2} alt="Escola" />
-              <h5>Museu da Mueda</h5>
-              <div className={styles["grid-footer"]}>
-                <p id="monumento">Monumento</p>
-                <p>Bairro do Museu</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

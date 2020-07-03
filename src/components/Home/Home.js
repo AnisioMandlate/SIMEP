@@ -19,7 +19,7 @@ const Home = () => {
         <div>
           <img src={pieChart} alt="Estatísticas" />
           <hr />
-          <p>Estatísticas - New</p>
+          <p>Estatísticas</p>
         </div>
       </Link>
 
