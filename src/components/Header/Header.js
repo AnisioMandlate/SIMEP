@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../assets/homely.svg";
 import bell from "../../assets/bell.svg";
 import profile from "../../assets/user.svg";
 import logout from "../../assets/shutdown.svg";
@@ -11,7 +10,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <Link to="/">
-          <img src={logo} alt="Logo" />
+          <h3>SIMEP</h3>
         </Link>
       </div>
       <nav className={styles.menu}>
