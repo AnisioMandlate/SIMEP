@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styles from "./Building.module.css";
 import Input from "../Forms/Input";
 import Select from "../Forms/Select";
+import { Link } from "react-router-dom";
+import addBtn from "../../assets/add.svg";
 
 import { getBuildings, getBuildingByName } from "./services";
 
@@ -120,6 +122,11 @@ const Building = () => {
               </div>
             ))}
           </div>
+          <Link to="/addBuilding">
+            <button className={styles["add-building"]}>
+              <img src={addBtn} alt="Add Building button" />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

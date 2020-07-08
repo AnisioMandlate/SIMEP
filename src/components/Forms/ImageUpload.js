@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import blankProfile from "../../assets/account.svg";
+import blankImg from "../../assets/file.svg";
 import styles from "./ImageUpload.module.css";
 
 export class ImageUpload extends Component {
   state = {
-    profileImg: blankProfile,
+    profileImg: blankImg,
   };
 
   imageHandler = (e) => {

@@ -15,7 +15,7 @@ export const Buildings = [
   },
   {
     id: "2",
-    name: "Edificio Municipal",
+    name: "Edifício Municipal",
     location: "Bairro Central",
     type: "Administrativo",
     image: administrative,

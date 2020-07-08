@@ -1,0 +1,61 @@
+.geral {
+  background-color: #fff;
+  padding: 30px 0 20px;
+  width: 100%;
+}
+
+form {
+  padding: 0 50px;
+}
+
+.addBuilding,
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+form input,
+form select {
+  margin: 20px;
+  padding: 10px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+form select {
+  background-color: white;
+}
+
+.buttons {
+  justify-content: center;
+}
+
+.form-column .upload-button,
+.buttons .cancel-button,
+.buttons .add-button {
+  padding: 10px;
+  width: 150px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.add-button,
+.upload-button {
+  background-color: #0fb30fb8;
+}
+
+.cancel-button {
+  background-color: #ff0808ba;
+}

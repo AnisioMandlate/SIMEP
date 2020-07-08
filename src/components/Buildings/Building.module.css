@@ -87,3 +87,19 @@
   padding: 0 10px;
   margin: 16px 0;
 }
+
+.add-building {
+  background: none;
+  border: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  outline: none;
+  cursor: pointer;
+}
+
+.add-building img {
+  width: 60px;
+  border: none;
+}

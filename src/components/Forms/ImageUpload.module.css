@@ -1,5 +1,6 @@
 .page {
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
@@ -8,7 +9,7 @@
 }
 
 .img {
-  width: 200px;
+  width: 180px;
   border-radius: 20px;
 }
 
