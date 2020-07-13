@@ -1,40 +1,85 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../Forms/Input";
 import styles from "./AddUser.module.css";
 import Select from "../Forms/Select";
 // import { Link } from "react-router-dom";
 import ImageUpload from "../Forms/ImageUpload";
+import api from "../services/api";
 
 const AddUser = () => {
+  const [selectedProfile, setSelectedProfile] = useState("0");
+  const [formData, setFormData] = useState({
+    name: "",
+    surname: "",
+    gender: "",
+    bi: "",
+    email: "",
+    nuit: "",
+    phone: "",
+  });
+
   function handleClick() {
     console.log("I was cleared");
   }
 
+  function handleSelected(event) {
+    const profile = event.target.value;
+    setSelectedProfile(profile);
+  }
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const { name, surname, gender, bi, email, nuit, phone } = formData;
+    const profile = selectedProfile;
+
+    const data = {
+      name,
+      surname,
+      gender,
+      bi,
+      email,
+      nuit,
+      phone,
+      profile,
+    };
+
+    await api.post("users", data);
+    alert("Usuario Criado!");
+  }
+
   return (
     <div className={styles.geral}>
-      <form id="user-form">
+      <form onSubmit={handleSubmit}>
         <div className={styles.addUser}>
           <div className={styles["form-column"]}>
             <Input
-              name="nome"
+              name="name"
               type="text"
               placeholder="Nome"
               value=""
               required
+              onChange={handleInputChange}
             />
             <Input
-              name="genero"
+              name="gender"
               type="text"
               placeholder="Genero"
               value=""
               required
+              onChange={handleInputChange}
             />
             <Input
-              name="id"
+              name="bi"
               type="text"
               placeholder="Bilhete de Identidade"
               value=""
               required
+              onChange={handleInputChange}
             />
             <Input
               name="email"
@@ -42,6 +87,7 @@ const AddUser = () => {
               placeholder="Email"
               value=""
               required
+              onChange={handleInputChange}
             />
             <Select
               placeholder="Perfil do Utilizador"
@@ -60,22 +106,25 @@ const AddUser = () => {
                   value: "gestor de projectos de terceiros",
                 },
               ]}
+              onChange={handleSelected}
             />
           </div>
           <div className={styles["form-column"]}>
             <Input
-              name="lastName"
+              name="surname"
               type="text"
               placeholder="Apelido"
               value=""
               required
+              onChange={handleInputChange}
             />
             <Input
-              name="employeeId"
+              name="code"
               type="text"
               placeholder="Código de Trabalhador"
               value=""
               required
+              onChange={handleInputChange}
             />
             <Input
               name="nuit"
@@ -83,13 +132,15 @@ const AddUser = () => {
               placeholder="NUIT"
               value=""
               required
+              onChange={handleInputChange}
             />
             <Input
-              name="cellphone"
+              name="phone"
               type="text"
               placeholder="Número de Celular"
               value=""
               required
+              onChange={handleInputChange}
             />
           </div>
           <ImageUpload />

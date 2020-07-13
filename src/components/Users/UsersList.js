@@ -5,6 +5,7 @@ import editIcon from "../../assets/edit.svg";
 import addBtn from "../../assets/add.svg";
 import { Link } from "react-router-dom";
 import { getUsers } from "./services";
+// import api from "../services/api";
 
 const User = () => {
   const [users, setUser] = useState([]);
@@ -16,6 +17,10 @@ const User = () => {
   const handleDelete = () => {
     console.log("I was clicked");
   };
+
+  // api.get("/users").then((response) => {
+  //   setUser(response.data)
+  // })
 
   return (
     <div className={styles.user}>
@@ -40,7 +45,7 @@ const User = () => {
           ))}
         </div>
       </div>
-      <Link to="/addUser">
+      <Link to="add-user">
         <button className={styles["add-user"]}>
           <img src={addBtn} alt="Add User button" />
         </button>

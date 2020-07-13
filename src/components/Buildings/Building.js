@@ -122,7 +122,7 @@ const Building = () => {
               </div>
             ))}
           </div>
-          <Link to="/addBuilding">
+          <Link to="/add-building">
             <button className={styles["add-building"]}>
               <img src={addBtn} alt="Add Building button" />
             </button>
