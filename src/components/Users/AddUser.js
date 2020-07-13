@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Input from "../Forms/Input";
 import styles from "./AddUser.module.css";
 import Select from "../Forms/Select";
-// import { Link } from "react-router-dom";
 import ImageUpload from "../Forms/ImageUpload";
 import api from "../services/api";
 
