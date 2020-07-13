@@ -4,8 +4,10 @@ import styles from "./AddUser.module.css";
 import Select from "../Forms/Select";
 import ImageUpload from "../Forms/ImageUpload";
 import api from "../services/api";
+import { useHistory } from "react-router-dom";
 
 const AddUser = () => {
+  const history = useHistory();
   const [selectedProfile, setSelectedProfile] = useState("0");
   const [formData, setFormData] = useState({
     name: "",
@@ -18,7 +20,8 @@ const AddUser = () => {
   });
 
   function handleClick() {
-    console.log("I was cleared");
+    alert("Cancelar esta operação não terá volta");
+    history.push("/users");
   }
 
   function handleSelected(event) {
@@ -144,16 +147,20 @@ const AddUser = () => {
           </div>
           <ImageUpload />
         </div>
-        <div className={styles.buttons}>
-          <button className={styles["cancel-button"]} onClick={handleClick()}>
-            Cancelar
-          </button>
-
-          <button type="submit" className={styles["add-button"]}>
-            Registar
-          </button>
-        </div>
       </form>
+      <div className={styles.buttons}>
+        <button className={styles["cancel-button"]} onClick={handleClick}>
+          Cancelar
+        </button>
+
+        <button
+          type="submit"
+          className={styles["add-button"]}
+          onClick={handleSubmit}
+        >
+          Registar
+        </button>
+      </div>
     </div>
   );
 };
