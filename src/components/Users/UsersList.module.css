@@ -26,6 +26,11 @@
   justify-items: center;
 }
 
+.user-cards a {
+  text-decoration: none;
+  color: #000;
+}
+
 .user-card {
   padding: 20px;
   text-align: center;

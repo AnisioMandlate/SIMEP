@@ -9,15 +9,7 @@ import { useHistory } from "react-router-dom";
 const AddUser = () => {
   const history = useHistory();
   const [selectedProfile, setSelectedProfile] = useState("0");
-  const [formData, setFormData] = useState({
-    name: "",
-    surname: "",
-    gender: "",
-    bi: "",
-    email: "",
-    nuit: "",
-    phone: "",
-  });
+  const [formData, setFormData] = useState({});
 
   function handleClick() {
     alert("Cancelar esta operação não terá volta");
@@ -36,19 +28,8 @@ const AddUser = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const { name, surname, gender, bi, email, nuit, phone } = formData;
-    const profile = selectedProfile;
 
-    const data = {
-      name,
-      surname,
-      gender,
-      bi,
-      email,
-      nuit,
-      phone,
-      profile,
-    };
+    const data = { ...formData, selectedProfile };
 
     await api.post("users", data);
     alert("Usuario Criado!");
@@ -63,32 +44,28 @@ const AddUser = () => {
               name="name"
               type="text"
               placeholder="Nome"
-              value=""
-              required
+              value={formData["name"]}
               onChange={handleInputChange}
             />
             <Input
               name="gender"
               type="text"
               placeholder="Genero"
-              value=""
-              required
+              value={formData["gender"]}
               onChange={handleInputChange}
             />
             <Input
               name="bi"
               type="text"
               placeholder="Bilhete de Identidade"
-              value=""
-              required
+              value={formData["bi"]}
               onChange={handleInputChange}
             />
             <Input
               name="email"
               type="email"
               placeholder="Email"
-              value=""
-              required
+              value={formData["email"]}
               onChange={handleInputChange}
             />
             <Select
@@ -96,16 +73,16 @@ const AddUser = () => {
               options={[
                 {
                   name: "Director de Operações",
-                  value: "director de operações",
+                  value: "Director de Operações",
                 },
-                { name: "Técnico de Operações", value: "técnico de operações" },
+                { name: "Técnico de Operações", value: "Técnico de Operações" },
                 {
                   name: "Gestor de Projectos Sénior",
-                  value: "gestor de projectos sénior",
+                  value: "Gestor de Projectos Sénior",
                 },
                 {
                   name: "Gestor de Projectos de Terceiros",
-                  value: "gestor de projectos de terceiros",
+                  value: "Gestor de Projectos de Terceiros",
                 },
               ]}
               onChange={handleSelected}
@@ -116,32 +93,28 @@ const AddUser = () => {
               name="surname"
               type="text"
               placeholder="Apelido"
-              value=""
-              required
+              value={formData["surname"]}
               onChange={handleInputChange}
             />
             <Input
               name="code"
               type="text"
               placeholder="Código de Trabalhador"
-              value=""
-              required
+              value={formData["code"]}
               onChange={handleInputChange}
             />
             <Input
               name="nuit"
               type="text"
               placeholder="NUIT"
-              value=""
-              required
+              value={formData["nuit"]}
               onChange={handleInputChange}
             />
             <Input
               name="phone"
               type="text"
               placeholder="Número de Celular"
-              value=""
-              required
+              value={formData["phone"]}
               onChange={handleInputChange}
             />
           </div>

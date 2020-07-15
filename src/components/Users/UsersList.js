@@ -4,44 +4,45 @@ import deleteIcon from "../../assets/delete.svg";
 import editIcon from "../../assets/edit.svg";
 import addBtn from "../../assets/add.svg";
 import { Link } from "react-router-dom";
-import { getUsers } from "./services";
-// import api from "../services/api";
+import api from "../services/api";
 
 const User = () => {
-  const [users, setUser] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getUsers().then((result) => setUser(result));
+    api.get("users").then((response) => {
+      setUsers(response.data);
+    });
   }, []);
 
   const handleDelete = () => {
     console.log("I was clicked");
   };
 
-  // api.get("/users").then((response) => {
-  //   setUser(response.data)
-  // })
-
   return (
     <div className={styles.user}>
       <div className={styles["user-content"]}>
         <h3 className={styles["user-heading"]}>
-          Total de Utilizadores: {users.length}
+          Total de Usuários: {users.length}
         </h3>
         <div className={styles["user-cards"]}>
           {users.map((user) => (
-            <div className={styles["user-card"]} key={user.id}>
-              <img src={user.image} alt="User" className={styles.userPic} />
-              <h4>{user.name}</h4>
-              <p className={styles.cargo}>{user.position}</p>
-              <p className={styles.direccao}>{user.office}</p>
-              <div className={styles.icons}>
-                <Link to="/addUser">
-                  <img src={editIcon} alt="Edit" />
-                </Link>
-                <img src={deleteIcon} alt="Delete" onClick={handleDelete} />
+            <Link to={`/users/${user.id}`}>
+              <div className={styles["user-card"]} key={user.id}>
+                <img src={user.avatar} alt="User" className={styles.userPic} />
+                <h4>
+                  {user.name} {user.surname}
+                </h4>
+                <p className={styles.cargo}>{user.profile}</p>
+                {/* <p className={styles.direccao}>{user.office}</p> */}
+                <div className={styles.icons}>
+                  <Link to="/addUser">
+                    <img src={editIcon} alt="Edit" />
+                  </Link>
+                  <img src={deleteIcon} alt="Delete" onClick={handleDelete} />
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

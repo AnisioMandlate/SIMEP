@@ -1,9 +1,5 @@
-import { Users } from "./data";
+import api from "../services/api";
 
-export const getUsers = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(Users);
-    }, 1000);
-  });
+export const getUserById = (id) => {
+  return api.get(`/users/${id}`).then((response) => response.data);
 };

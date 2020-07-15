@@ -10,6 +10,7 @@ import Building from "./components/Buildings/Building";
 import Statistic from "./components/Statistics/Statistic";
 import AddUser from "./components/Users/AddUser";
 import AddBuilding from "./components/Buildings/AddBuilding";
+import UserDetails from "./components/Users/UserDetails";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/users" component={Users} />
+            <Route exact path="/users/:id" component={UserDetails} />
             <Route exact path="/add-user" component={AddUser} />
             <Route exact path="/buildings" component={Building} />
             <Route exact path="/add-building" component={AddBuilding} />
