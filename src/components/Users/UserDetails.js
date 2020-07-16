@@ -17,8 +17,8 @@ const UserDetails = ({ match }) => {
         <hr />
         <div className={styles["card-content"]}>
           <div className={styles["profile-pic"]}>
-            <img src={userDetail.avatar} alt="Foto de Perfil" />
-            <p>{userDetail.profile}</p>
+            <img src={userDetail?.avatar?.url} alt="Foto de Perfil" />
+            <h4>{userDetail.profile}</h4>
           </div>
           <hr />
           <div>
