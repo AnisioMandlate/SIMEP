@@ -38,7 +38,6 @@ const User = () => {
                   {user.name} {user.surname}
                 </h4>
                 <p className={styles.cargo}>{user.profile}</p>
-                {/* <p className={styles.direccao}>{user.office}</p> */}
                 <div className={styles.icons}>
                   <Link to="/add-user">
                     <img src={editIcon} alt="Edit" />
