@@ -27,16 +27,20 @@ const User = () => {
         </h3>
         <div className={styles["user-cards"]}>
           {users.map((user) => (
-            <Link to={`/users/${user.id}`}>
-              <div className={styles["user-card"]} key={user.id}>
-                <img src={user.avatar} alt="User" className={styles.userPic} />
+            <Link to={`/users/${user.id}`} key={user.id}>
+              <div className={styles["user-card"]}>
+                <img
+                  src={user.avatar.url}
+                  alt="User"
+                  className={styles.userPic}
+                />
                 <h4>
                   {user.name} {user.surname}
                 </h4>
                 <p className={styles.cargo}>{user.profile}</p>
                 {/* <p className={styles.direccao}>{user.office}</p> */}
                 <div className={styles.icons}>
-                  <Link to="/addUser">
+                  <Link to="/add-user">
                     <img src={editIcon} alt="Edit" />
                   </Link>
                   <img src={deleteIcon} alt="Delete" onClick={handleDelete} />

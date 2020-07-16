@@ -1,45 +1,37 @@
-import React, { Component } from "react";
-import blankImg from "../../assets/file.svg";
+import React, { useCallback, useState } from "react";
+import { useDropzone } from "react-dropzone";
 import styles from "./ImageUpload.module.css";
+import { FiUpload } from "react-icons/fi";
 
-export class ImageUpload extends Component {
-  state = {
-    profileImg: blankImg,
-  };
+const ImageUpload = ({ onFileUploaded }) => {
+  const [selectedFileUrl, setSelectedFileUrl] = useState("");
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      const file = acceptedFiles[0];
+      const fileUrl = URL.createObjectURL(file);
+      setSelectedFileUrl(fileUrl);
+      onFileUploaded(file);
+    },
+    [onFileUploaded]
+  );
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop,
+    accept: "image/*",
+  });
 
-  imageHandler = (e) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        this.setState({ profileImg: reader.result });
-      }
-    };
-    reader.readAsDataURL(e.target.files[0]);
-  };
-  render() {
-    const { profileImg } = this.state;
-    return (
-      <div className={styles.page}>
-        <div className={styles.container}>
-          <div className={styles["img-holder"]}>
-            <img src={profileImg} alt="" id="img" className={styles.img} />
-          </div>
-          <input
-            type="file"
-            accept="image/*"
-            name="image-upload"
-            id="input"
-            onChange={this.imageHandler}
-          />
-          <div className={styles.label}>
-            <label className={styles["image-upload"]} htmlFor="input">
-              <h5>Upload</h5>
-            </label>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+  return (
+    <div className={styles.dropzone} {...getRootProps()}>
+      <input {...getInputProps()} accept="image/*" />
+      {selectedFileUrl ? (
+        <img src={selectedFileUrl} alt="Imagem do Estabelicemento" />
+      ) : (
+        <p>
+          <FiUpload />
+          Clique aqui para adicionar a imagem
+        </p>
+      )}
+    </div>
+  );
+};
 
 export default ImageUpload;

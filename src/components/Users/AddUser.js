@@ -10,6 +10,7 @@ const AddUser = () => {
   const history = useHistory();
   const [selectedProfile, setSelectedProfile] = useState("0");
   const [formData, setFormData] = useState({});
+  const [selectedFile, setSelectedFile] = useState();
 
   function handleClick() {
     alert("Cancelar esta operação não terá volta");
@@ -28,11 +29,24 @@ const AddUser = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-
-    const data = { ...formData, selectedProfile };
-
-    await api.post("users", data);
+    const { name, surname, email, gender, bi, code, nuit, phone } = formData;
+    const profile = selectedProfile;
+    const data = new FormData();
+    data.append("name", name);
+    data.append("surname", surname);
+    data.append("email", email);
+    data.append("gender", gender);
+    data.append("bi", bi);
+    data.append("code", code);
+    data.append("nuit", nuit);
+    data.append("profile", profile);
+    data.append("phone", phone);
+    if (selectedFile) {
+      data.append("file", selectedFile);
+    }
+    await api.post("users", data).catch((error) => alert(error));
     alert("Usuario Criado!");
+    history.push("/users");
   }
 
   return (
@@ -118,7 +132,7 @@ const AddUser = () => {
               onChange={handleInputChange}
             />
           </div>
-          <ImageUpload />
+          <ImageUpload onFileUploaded={setSelectedFile} />
         </div>
       </form>
       <div className={styles.buttons}>
