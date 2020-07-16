@@ -3,11 +3,11 @@ import styles from "../Profile/Profile.module.css";
 import { getUserById } from "./services";
 
 const UserDetails = ({ match }) => {
-  const [userDetails, setUserDetails] = useState({});
+  const [userDetail, setUserDetail] = useState({});
 
   useEffect(() => {
     getUserById(match.params.id)
-      .then((user) => setUserDetails(user))
+      .then((user) => setUserDetail(user))
       .catch((error) => console.error(error));
   }, [match]);
   return (
@@ -17,8 +17,8 @@ const UserDetails = ({ match }) => {
         <hr />
         <div className={styles["card-content"]}>
           <div className={styles["profile-pic"]}>
-            <img src={userDetails.avatar} alt="Foto de Perfil" />
-            <p>{userDetails.profile}</p>
+            <img src={userDetail.avatar} alt="Foto de Perfil" />
+            <p>{userDetail.profile}</p>
           </div>
           <hr />
           <div>
@@ -28,10 +28,10 @@ const UserDetails = ({ match }) => {
           </div>
           <div className={styles["user-data"]}>
             <p>
-              {userDetails.name} {userDetails.surname}{" "}
+              {userDetail.name} {userDetail.surname}{" "}
             </p>
-            <p>{userDetails.email} </p>
-            <p>(+258) {userDetails.phone}</p>
+            <p>{userDetail.email} </p>
+            <p>(+258) {userDetail.phone}</p>
           </div>
         </div>
       </div>

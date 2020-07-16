@@ -29,21 +29,8 @@ const AddUser = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const { name, surname, email, gender, bi, code, nuit, phone } = formData;
-    const profile = selectedProfile;
-    const data = new FormData();
-    data.append("name", name);
-    data.append("surname", surname);
-    data.append("email", email);
-    data.append("gender", gender);
-    data.append("bi", bi);
-    data.append("code", code);
-    data.append("nuit", nuit);
-    data.append("profile", profile);
-    data.append("phone", phone);
-    if (selectedFile) {
-      data.append("file", selectedFile);
-    }
+    const data = { ...formData, selectedProfile };
+
     await api.post("users", data).catch((error) => alert(error));
     alert("Usuario Criado!");
     history.push("/users");

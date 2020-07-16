@@ -49,7 +49,7 @@ const User = () => {
           ))}
         </div>
       </div>
-      <Link to="add-user">
+      <Link to="/add-user">
         <button className={styles["add-user"]}>
           <img src={addBtn} alt="Add User button" />
         </button>
