@@ -11,6 +11,7 @@ const AddUser = () => {
   const [selectedProfile, setSelectedProfile] = useState("0");
   const [formData, setFormData] = useState({});
   const [selectedFile, setSelectedFile] = useState();
+  const [avatar_id, setAvatar_id] = useState(0);
 
   function handleClick() {
     alert("Cancelar esta operação não terá volta");
@@ -27,13 +28,17 @@ const AddUser = () => {
     setFormData({ ...formData, [name]: value });
   }
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-    const data = { ...formData, selectedProfile };
 
-    await api.post("users", data).catch((error) => alert(error));
-    alert("Usuario Criado!");
-    history.push("/users");
+    api
+      .post("files", selectedFile)
+      .then(({ data }) => setAvatar_id(data))
+      .then(api.post("users", { ...formData, selectedProfile, avatar_id }))
+      .then(() => {
+        alert("Usuario Criado!");
+        history.push("/users");
+      });
   }
 
   return (

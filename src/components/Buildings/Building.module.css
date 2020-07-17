@@ -57,6 +57,11 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+a {
+  text-decoration: none;
+  color: #000;
+}
+
 .grid-card {
   min-width: 15rem;
   margin: 0.75rem;

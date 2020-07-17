@@ -5,14 +5,17 @@ import Select from "../Forms/Select";
 import { Link } from "react-router-dom";
 import addBtn from "../../assets/add.svg";
 
-import { getBuildings, getBuildingByName } from "./services";
+import { getBuildingByName } from "./services";
+import api from "../services/api";
 
 const Building = () => {
   const [buildings, setBuildings] = useState([]);
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
-    getBuildings().then((result) => setBuildings(result));
+    api.get("buildings").then((response) => {
+      setBuildings(response);
+    });
   }, []);
 
   const handleSearch = (event) => {
@@ -111,15 +114,17 @@ const Building = () => {
           <h3>Edifícios</h3>
           <hr className={styles["horizontal-line"]} />
           <div className={styles["grid-cards"]}>
-            {buildings.map((build) => (
-              <div key={build.id} className={styles["grid-card"]}>
-                <img src={build.image} alt="Escola" />
-                <h5>{build.name}</h5>
-                <div className={styles["grid-footer"]}>
-                  <p id="escola">{build.type}</p>
-                  <p>{build.location}</p>
+            {buildings.map((building) => (
+              <Link to={`/users/${building.id}`} key={building.id}>
+                <div key={building.id} className={styles["grid-card"]}>
+                  <img src={building.image} alt={building.name} />
+                  <h5>{building.name}</h5>
+                  <div className={styles["grid-footer"]}>
+                    <p id="escola">{building.type}</p>
+                    <p>{building.location}</p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           <Link to="/add-building">

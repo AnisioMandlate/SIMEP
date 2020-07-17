@@ -1,29 +1,16 @@
 import { Buildings } from "./data";
 
-export const getBuildings = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(Buildings);
-    }, 2000);
-  });
-};
+import api from "../services/api";
 
 export const getBuildingById = (id) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const building = Buildings.filter((build) => id === build.id)[0];
-      resolve(building);
-    }, 2000);
-  });
+  return api.get(`/buildings/${id}`).then((response) => response.data);
 };
 
 export const getBuildingByName = (name) => {
   return new Promise((resolve, reject) => {
-    const building = Buildings.filter((build) =>
-      build.name.toLowerCase().includes(name.toLowerCase())
+    const building = Buildings.filter((building) =>
+      building.name.toLowerCase().includes(name.toLowerCase())
     );
     resolve(building);
   });
 };
-
-export const filterBuildings = (filters) => {};
