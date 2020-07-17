@@ -1,0 +1,25 @@
+.details {
+  background-color: #fff;
+  padding: 10px 0 20px;
+  width: 100%;
+}
+
+.details h1 {
+  text-align: center;
+}
+
+.details-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, 450px);
+}
+
+.info-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+span {
+  font-weight: normal;
+  font-size: 0.9em;
+}

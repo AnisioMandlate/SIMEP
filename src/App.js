@@ -11,6 +11,7 @@ import Statistic from "./components/Statistics/Statistic";
 import AddUser from "./components/Users/AddUser";
 import AddBuilding from "./components/Buildings/AddBuilding";
 import UserDetails from "./components/Users/UserDetails";
+import BuildingDetails from "./components/Buildings/BuildingDetails";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route exact path="/users/:id" component={UserDetails} />
             <Route exact path="/add-user" component={AddUser} />
             <Route exact path="/buildings" component={Building} />
+            <Route exact path="/buildings/:id" component={BuildingDetails} />
             <Route exact path="/add-building" component={AddBuilding} />
             <Route exact path="/statistics" component={Statistic} />
             <Route exact path="/notifications" component={Notification} />

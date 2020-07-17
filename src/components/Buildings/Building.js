@@ -14,7 +14,7 @@ const Building = () => {
 
   useEffect(() => {
     api.get("buildings").then((response) => {
-      setBuildings(response);
+      setBuildings(response.data);
     });
   }, []);
 
@@ -41,6 +41,7 @@ const Building = () => {
           placeholder="Pesquisar Edificio"
         />
       </div>
+      {console.log(buildings)}
       <hr />
       <div className={styles["building-content"]}>
         <div className={styles.filters}>
@@ -114,14 +115,14 @@ const Building = () => {
           <h3>Edifícios</h3>
           <hr className={styles["horizontal-line"]} />
           <div className={styles["grid-cards"]}>
-            {buildings.map((building) => (
-              <Link to={`/users/${building.id}`} key={building.id}>
-                <div key={building.id} className={styles["grid-card"]}>
-                  <img src={building.image} alt={building.name} />
-                  <h5>{building.name}</h5>
+            {buildings.map((build) => (
+              <Link to={`/buildings/${build.id}`} key={build.id}>
+                <div key={build.id} className={styles["grid-card"]}>
+                  <img src={build.image} alt={build.name} />
+                  <h5>{build.name}</h5>
                   <div className={styles["grid-footer"]}>
-                    <p id="escola">{building.type}</p>
-                    <p>{building.location}</p>
+                    <p id="escola">{build.type}</p>
+                    <p>{build.location}</p>
                   </div>
                 </div>
               </Link>

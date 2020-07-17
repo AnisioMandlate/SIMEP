@@ -7,9 +7,15 @@ export const getBuildingById = (id) => {
 };
 
 export const getBuildingByName = (name) => {
+  // api.get(`buildings`).then((resolve, reject) => {
+  //   const building = buildings.filter((build) =>
+  //     build.name.toLowerCase().includes(name.toLowerCase())
+  //   );
+  //   resolve(building);
+  // });
   return new Promise((resolve, reject) => {
-    const building = Buildings.filter((building) =>
-      building.name.toLowerCase().includes(name.toLowerCase())
+    const building = Buildings.filter((build) =>
+      build.name.toLowerCase().includes(name.toLowerCase())
     );
     resolve(building);
   });
