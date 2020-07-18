@@ -17,7 +17,7 @@ const AddBuilding = () => {
           <div className={styles["form-column"]}>
             <h3>Dados do Edifício</h3>
             <Input
-              name="buildingName"
+              name="name"
               type="text"
               placeholder="Nome do Edifício"
               value=""
@@ -71,7 +71,7 @@ const AddBuilding = () => {
               required
             />
             <Select
-              placeholder="Perfil do Reistador"
+              placeholder="Perfil do Registador"
               options={[
                 {
                   name: "Director de Operações",

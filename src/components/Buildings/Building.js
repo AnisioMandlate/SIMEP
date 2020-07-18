@@ -41,7 +41,6 @@ const Building = () => {
           placeholder="Pesquisar Edificio"
         />
       </div>
-      {console.log(buildings)}
       <hr />
       <div className={styles["building-content"]}>
         <div className={styles.filters}>

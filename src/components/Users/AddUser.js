@@ -11,7 +11,7 @@ const AddUser = () => {
   const [selectedProfile, setSelectedProfile] = useState("0");
   const [formData, setFormData] = useState({});
   const [selectedFile, setSelectedFile] = useState();
-  const [avatar_id, setAvatar_id] = useState(0);
+  const [avatar_id, setAvatar_id] = useState(null);
 
   function handleClick() {
     alert("Cancelar esta operação não terá volta");
@@ -30,11 +30,19 @@ const AddUser = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
+    const profile = selectedProfile;
+
+    const fileUpload = new FormData();
+    if (selectedFile) {
+      fileUpload.append("file", selectedFile);
+    }
 
     api
-      .post("files", selectedFile)
-      .then(({ data }) => setAvatar_id(data))
-      .then(api.post("users", { ...formData, selectedProfile, avatar_id }))
+      .post("files", fileUpload)
+      .then(({ data }) => data)
+      .then((data) =>
+        api.post("users", { ...formData, profile, avatar_id: data })
+      )
       .then(() => {
         alert("Usuario Criado!");
         history.push("/users");
