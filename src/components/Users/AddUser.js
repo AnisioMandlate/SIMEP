@@ -11,7 +11,6 @@ const AddUser = () => {
   const [selectedProfile, setSelectedProfile] = useState("0");
   const [formData, setFormData] = useState({});
   const [selectedFile, setSelectedFile] = useState();
-  const [avatar_id, setAvatar_id] = useState(null);
 
   function handleClick() {
     alert("Cancelar esta operação não terá volta");
