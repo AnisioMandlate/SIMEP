@@ -23,3 +23,12 @@ span {
   font-weight: normal;
   font-size: 0.9em;
 }
+
+img {
+  width: 100%;
+}
+
+.building-info,
+.building-img {
+  margin: 0 15px;
+}

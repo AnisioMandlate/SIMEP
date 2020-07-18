@@ -117,7 +117,7 @@ const Building = () => {
             {buildings.map((build) => (
               <Link to={`/buildings/${build.id}`} key={build.id}>
                 <div key={build.id} className={styles["grid-card"]}>
-                  <img src={build.image} alt={build.name} />
+                  <img src={build.image.url} alt={build.name} />
                   <h5>{build.name}</h5>
                   <div className={styles["grid-footer"]}>
                     <p id="escola">{build.type}</p>

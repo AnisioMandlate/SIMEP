@@ -14,7 +14,7 @@ const BuildingDetails = ({ match }) => {
       <h1>Detalhes do Edifício</h1>
       <div className={styles["details-grid"]}>
         <div className={styles["building-img"]}>
-          <img src={buildingDetail} alt={buildingDetail.name} />
+          <img src={buildingDetail?.image?.url} alt={buildingDetail.name} />
         </div>
         <div className={styles["building-info"]}>
           <p className={styles["info-title"]}>
@@ -36,7 +36,7 @@ const BuildingDetails = ({ match }) => {
           <p className={styles["info-title"]}>
             Registado por:{" "}
             <span>
-              {buildingDetail?.user?.name},{buildingDetail?.user?.profile}
+              {buildingDetail.register_name},{buildingDetail.register_profile}
             </span>
           </p>
         </div>

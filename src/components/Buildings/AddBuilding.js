@@ -1,18 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../Forms/Input";
 import styles from "./AddBuilding.module.css";
 import Select from "../Forms/Select";
 // import { Link } from "react-router-dom";
 import ImageUpload from "../Forms/ImageUpload";
+import api from "../services/api";
+import { useHistory } from "react-router-dom";
 
 const AddBuilding = () => {
+  const history = useHistory();
+  const [selectedProfile, setSelectedProfile] = useState("0");
+  const [formData, setFormData] = useState({});
+  const [selectedFile, setSelectedFile] = useState();
+  const [selectedType, setSelectedType] = useState();
   function handleClick() {
     console.log("I was cleared");
   }
 
+  function handleSelectedType(event) {
+    const type = event.target.value;
+    setSelectedType(type);
+  }
+
+  function handleSelectedProfile(event) {
+    const profile = event.target.value;
+    setSelectedProfile(profile);
+  }
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const register_profile = selectedProfile;
+    const type = selectedType;
+
+    const fileUpload = new FormData();
+    if (selectedFile) {
+      fileUpload.append("file", selectedFile);
+    }
+
+    api
+      .post("files", fileUpload)
+      .then(({ data }) => data)
+      .then((data) =>
+        api.post("buildings", {
+          ...formData,
+          type,
+          image_id: data,
+          register_profile,
+        })
+      )
+      .then(() => {
+        alert("Edifício criado!");
+        history.push("/buildings");
+      });
+  }
+
   return (
     <div className={styles.geral}>
-      <form id="user-form">
+      <form onSubmit={handleSubmit}>
         <div className={styles.addBuilding}>
           <div className={styles["form-column"]}>
             <h3>Dados do Edifício</h3>
@@ -20,15 +69,15 @@ const AddBuilding = () => {
               name="name"
               type="text"
               placeholder="Nome do Edifício"
-              value=""
-              required
+              value={formData["name"]}
+              onChange={handleInputChange}
             />
             <Input
               name="location"
               type="text"
               placeholder="Localização"
-              value=""
-              required
+              value={formData["location"]}
+              onChange={handleInputChange}
             />
             <Select
               placeholder="Tipo de Edifício"
@@ -39,60 +88,55 @@ const AddBuilding = () => {
                 },
                 {
                   name: "Escola",
-                  value: "escola",
+                  value: "Escola",
                 },
                 {
                   name: "Hospital",
-                  value: "hospital",
+                  value: "Hospital",
                 },
                 {
                   name: "Jardim",
-                  value: "jardim",
+                  value: "Jardim",
                 },
 
-                { name: "Monumento", value: "monumento" },
+                { name: "Monumento", value: "Monumento" },
               ]}
+              onChange={handleSelectedType}
             />
           </div>
           <div className={styles["form-column"]}>
             <h3>Dados do Registador</h3>
             <Input
-              name="name"
+              name="register_name"
               type="text"
               placeholder="Nome"
-              value=""
-              required
-            />
-            <Input
-              name="date"
-              type="text"
-              placeholder="Data de Registo (dd/mm/aaaa)"
-              value=""
-              required
+              value={formData["register_name"]}
+              onChange={handleInputChange}
             />
             <Select
               placeholder="Perfil do Registador"
               options={[
                 {
                   name: "Director de Operações",
-                  value: "director de operações",
+                  value: "Director de operações",
                 },
-                { name: "Técnico de Operações", value: "técnico de operações" },
+                { name: "Técnico de Operações", value: "Técnico de Operações" },
                 {
                   name: "Gestor de Projectos Sénior",
-                  value: "gestor de projectos sénior",
+                  value: "Gestor de Projectos Sénior",
                 },
                 {
                   name: "Gestor de Projectos de Terceiros",
-                  value: "gestor de projectos de terceiros",
+                  value: "Gestor de Projectos de Terceiros",
                 },
               ]}
+              onChange={handleSelectedProfile}
             />
           </div>
-          <ImageUpload />
+          <ImageUpload onFileUploaded={setSelectedFile} />
         </div>
         <div className={styles.buttons}>
-          <button className={styles["cancel-button"]} onClick={handleClick()}>
+          <button className={styles["cancel-button"]} onClick={handleClick}>
             Cancelar
           </button>
 
