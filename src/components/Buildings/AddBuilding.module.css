@@ -20,8 +20,9 @@ form {
   width: 100%;
 }
 
-form input,
+.input,
 form select {
+  width: 80%;
   margin: 20px;
   padding: 10px;
   outline: none;

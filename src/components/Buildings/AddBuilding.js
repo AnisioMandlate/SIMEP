@@ -71,6 +71,7 @@ const AddBuilding = () => {
               placeholder="Nome do Edifício"
               value={formData["name"]}
               onChange={handleInputChange}
+              className={styles.input}
             />
             <Input
               name="location"
@@ -78,6 +79,7 @@ const AddBuilding = () => {
               placeholder="Localização"
               value={formData["location"]}
               onChange={handleInputChange}
+              className={styles.input}
             />
             <Select
               placeholder="Tipo de Edifício"
@@ -112,6 +114,7 @@ const AddBuilding = () => {
               placeholder="Nome"
               value={formData["register_name"]}
               onChange={handleInputChange}
+              className={styles.input}
             />
             <Select
               placeholder="Perfil do Registador"

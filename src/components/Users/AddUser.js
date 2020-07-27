@@ -45,7 +45,8 @@ const AddUser = () => {
       .then(() => {
         alert("Usuario Criado!");
         history.push("/users");
-      });
+      })
+      .catch((err) => alert(`Erro: ${err.message}`));
   }
 
   return (
@@ -59,6 +60,7 @@ const AddUser = () => {
               placeholder="Nome"
               value={formData["name"]}
               onChange={handleInputChange}
+              className={styles.input}
             />
             <Input
               name="gender"
@@ -66,6 +68,7 @@ const AddUser = () => {
               placeholder="Genero"
               value={formData["gender"]}
               onChange={handleInputChange}
+              className={styles.input}
             />
             <Input
               name="bi"
@@ -73,6 +76,7 @@ const AddUser = () => {
               placeholder="Bilhete de Identidade"
               value={formData["bi"]}
               onChange={handleInputChange}
+              className={styles.input}
             />
             <Input
               name="email"
@@ -80,6 +84,7 @@ const AddUser = () => {
               placeholder="Email"
               value={formData["email"]}
               onChange={handleInputChange}
+              className={styles.input}
             />
             <Select
               placeholder="Perfil do Utilizador"
@@ -108,6 +113,7 @@ const AddUser = () => {
               placeholder="Apelido"
               value={formData["surname"]}
               onChange={handleInputChange}
+              className={styles.input}
             />
             <Input
               name="code"
@@ -115,6 +121,7 @@ const AddUser = () => {
               placeholder="Código de Trabalhador"
               value={formData["code"]}
               onChange={handleInputChange}
+              className={styles.input}
             />
             <Input
               name="nuit"
@@ -122,6 +129,7 @@ const AddUser = () => {
               placeholder="NUIT"
               value={formData["nuit"]}
               onChange={handleInputChange}
+              className={styles.input}
             />
             <Input
               name="phone"
@@ -129,6 +137,15 @@ const AddUser = () => {
               placeholder="Número de Celular"
               value={formData["phone"]}
               onChange={handleInputChange}
+              className={styles.input}
+            />
+            <Input
+              name="password"
+              type="password"
+              placeholder="Coloque uma palavra-passe para o usuário"
+              value={formData["password"]}
+              onChange={handleInputChange}
+              className={styles.input}
             />
           </div>
           <ImageUpload onFileUploaded={setSelectedFile} />
