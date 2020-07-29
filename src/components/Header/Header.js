@@ -36,7 +36,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link to="/login" className={styles.link}>
+            <Link to="/" className={styles.link}>
               <img
                 src={logout}
                 alt="Bell Notification"

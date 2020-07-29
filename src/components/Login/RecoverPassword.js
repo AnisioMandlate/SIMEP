@@ -23,7 +23,7 @@ const RecoverPassword = () => {
       .post("sessions", { email, ...formData })
 
       .then(() => {
-        history.push("/login");
+        history.push("/");
       })
       .catch((err) => {
         if (err.response === 400) {

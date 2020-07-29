@@ -23,10 +23,10 @@ function App() {
         <Header />
         <div className="content">
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/" component={Login} />
             <Route exact path="/recover" component={Recover} />
             <Route exact path="/recover-password" component={RecoverPassword} />
+            <Route exact path="/home" component={Home} />
             <Route exact path="/users" component={Users} />
             <Route exact path="/users/:id" component={UserDetails} />
             <Route exact path="/add-user" component={AddUser} />
