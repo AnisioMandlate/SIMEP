@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from "react";
 import styles from "./BuildingDetails.module.css";
 import { getBuildingById } from "./services";
+import api from "../services/api";
 
 const BuildingDetails = ({ match }) => {
   const [buildingDetail, setBuildingDetail] = useState({});
+  const [userDetails, setUserDetails] = useState({});
+
   useEffect(() => {
     getBuildingById(match.params.id)
       .then((building) => setBuildingDetail(building))
       .catch((error) => alert(error));
   }, [match]);
+
+  useEffect(() => {
+    const userId = JSON.parse(sessionStorage.getItem("simepUser")).id;
+    api.get(`/users/${userId}`).then(({ data }) => setUserDetails(data));
+  }, []);
+
   return (
     <div className={styles.details}>
       <h1>Detalhes do Edifício</h1>
@@ -36,7 +45,7 @@ const BuildingDetails = ({ match }) => {
           <p className={styles["info-title"]}>
             Registado por:{" "}
             <span>
-              {buildingDetail.register_name},{buildingDetail.register_profile}
+              {userDetails.name} {userDetails.surname},{userDetails.profile}
             </span>
           </p>
         </div>

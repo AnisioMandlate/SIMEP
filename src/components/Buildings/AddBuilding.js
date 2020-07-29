@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 
 const AddBuilding = () => {
   const history = useHistory();
-  const [selectedProfile, setSelectedProfile] = useState("0");
+  // const [selectedProfile, setSelectedProfile] = useState("0");
   const [formData, setFormData] = useState({});
   const [selectedFile, setSelectedFile] = useState();
   const [selectedType, setSelectedType] = useState();
@@ -22,10 +22,10 @@ const AddBuilding = () => {
     setSelectedType(type);
   }
 
-  function handleSelectedProfile(event) {
-    const profile = event.target.value;
-    setSelectedProfile(profile);
-  }
+  // function handleSelectedProfile(event) {
+  //   const profile = event.target.value;
+  //   setSelectedProfile(profile);
+  // }
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -34,7 +34,7 @@ const AddBuilding = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const register_profile = selectedProfile;
+
     const type = selectedType;
 
     const fileUpload = new FormData();
@@ -50,7 +50,6 @@ const AddBuilding = () => {
           ...formData,
           type,
           image_id: data,
-          register_profile,
         })
       )
       .then(() => {
@@ -106,7 +105,7 @@ const AddBuilding = () => {
               onChange={handleSelectedType}
             />
           </div>
-          <div className={styles["form-column"]}>
+          {/* <div className={styles["form-column"]}>
             <h3>Dados do Registador</h3>
             <Input
               name="register_name"
@@ -135,7 +134,7 @@ const AddBuilding = () => {
               ]}
               onChange={handleSelectedProfile}
             />
-          </div>
+          </div> */}
           <ImageUpload onFileUploaded={setSelectedFile} />
         </div>
         <div className={styles.buttons}>
