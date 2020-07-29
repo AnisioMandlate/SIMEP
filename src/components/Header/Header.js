@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Link to="/">
+        <Link to="/home">
           <h3>SIMEP</h3>
         </Link>
       </div>
