@@ -23,7 +23,7 @@ const ImageUpload = ({ onFileUploaded }) => {
     <div className={styles.dropzone} {...getRootProps()}>
       <input {...getInputProps()} accept="image/*" />
       {selectedFileUrl ? (
-        <img src={selectedFileUrl} alt="Imagem do Estabelicemento" />
+        <img src={selectedFileUrl} alt="Imagem do Usuario" />
       ) : (
         <p>
           <FiUpload />

@@ -3,8 +3,10 @@ import styles from "./Login.module.css";
 import Input from "../Forms/Input";
 import { Link } from "react-router-dom";
 import api from "../services/api";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+  const history = useHistory();
   const [formData, setFormData] = useState({});
 
   function handleChange(event) {
@@ -14,7 +16,21 @@ const Login = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    api.post("sessions", { ...formData }).then(({ data }) => console.log(data));
+    api
+      .post("sessions", { ...formData })
+      .then(({ data }) => sessionStorage.setItem("token", data.token))
+      .then(() => {
+        history.push("/");
+      })
+      .catch((err) => {
+        if (err.response == 400) {
+          alert("Por favor, preencha correctamente seus dados!");
+        }
+
+        if (err.response == 401 || err.response == 404) {
+          alert(err.response.data.error);
+        }
+      });
   }
 
   return (
@@ -37,8 +53,8 @@ const Login = () => {
           className={styles.input}
           onChange={handleChange}
         />
-        <button className={styles["login-btn"]}>
-          <Link to="/">Aceder a minha conta</Link>
+        <button type="submit" className={styles["login-btn"]}>
+          Aceder a minha conta
         </button>
         <Link to="/recover">Esqueceu a senha?</Link>
       </form>
