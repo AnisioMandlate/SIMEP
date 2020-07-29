@@ -15,6 +15,7 @@ import BuildingDetails from "./components/Buildings/BuildingDetails";
 import Login from "./components/Login/Login";
 import Recover from "./components/Login/Recover";
 import RecoverPassword from "./components/Login/RecoverPassword";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route exact path="/statistics" component={Statistic} />
             <Route exact path="/notifications" component={Notification} />
             <Route exact path="/profile" component={Profile} />
+            <Route path="*" component={NotFound} />
           </Switch>
         </div>
 

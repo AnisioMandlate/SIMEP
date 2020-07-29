@@ -7,7 +7,7 @@ const Profile = () => {
   const [profileDetails, setProfileDetails] = useState({});
 
   useEffect(() => {
-    const userId = JSON.parse(sessionStorage.getItem("simepUser")).id;
+    const userId = JSON.parse(sessionStorage.getItem("simepUser"))?.id;
     api.get(`/users/${userId}`).then(({ data }) => setProfileDetails(data));
   }, []);
 
