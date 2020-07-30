@@ -26,7 +26,6 @@ function App() {
         <div className="content">
           <Switch>
             <Route exact path="/login" component={Login} />
-
             <Route exact path="/recover" component={Recover} />
             <Route exact path="/recover-password" component={RecoverPassword} />
             <ProtectedRoute exact path="/" component={Home} />
@@ -54,7 +53,6 @@ function App() {
             <Route path="*" component={NotFound} />
           </Switch>
         </div>
-
         <Footer />
       </div>
     </Router>
