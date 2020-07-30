@@ -3,9 +3,16 @@ import bell from "../../assets/bell.svg";
 import profile from "../../assets/user.svg";
 import logout from "../../assets/shutdown.svg";
 import styles from "./Header.module.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Header = () => {
+  const history = useHistory();
+
+  async function handleLogout() {
+    await sessionStorage.removeItem("simepUser");
+    history.push("/login");
+  }
+
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -35,15 +42,13 @@ const Header = () => {
               Perfil
             </Link>
           </li>
-          <li>
-            <Link to="/login" className={styles.link}>
-              <img
-                src={logout}
-                alt="Bell Notification"
-                className={styles.icons}
-              />
-              Sair
-            </Link>
+          <li className={(styles.link, styles.cursor)} onClick={handleLogout}>
+            <img
+              src={logout}
+              alt="Bell Notification"
+              className={styles.icons}
+            />
+            Sair
           </li>
         </ul>
       </nav>

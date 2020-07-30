@@ -28,12 +28,12 @@ const Login = () => {
         history.push("/");
       })
       .catch((err) => {
-        if (err.response.status === 400) {
+        if (err?.response?.status === 400) {
           alert("Por favor, preencha correctamente seus dados!");
         }
 
-        if (err.response.status === 401 || err.response.status === 404) {
-          alert(err.response.data.error);
+        if (err?.response?.status === 401 || err?.response?.status === 404) {
+          alert(err?.response?.data?.error);
         }
       });
   }
