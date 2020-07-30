@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Link to="/home">
+        <Link to="/">
           <h3>SIMEP</h3>
         </Link>
       </div>
@@ -36,7 +36,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link to="/" className={styles.link}>
+            <Link to="/login" className={styles.link}>
               <img
                 src={logout}
                 alt="Bell Notification"

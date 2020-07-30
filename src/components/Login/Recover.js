@@ -21,7 +21,7 @@ const Recover = () => {
           <Link to="/recover-password">Recuperar Conta</Link>
         </button>
         <p>OU</p>
-        <Link to="/">
+        <Link to="/login">
           <h4>
             Aceder ao sistema <span>SIMEP</span>
           </h4>

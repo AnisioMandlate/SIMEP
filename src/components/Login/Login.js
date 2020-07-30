@@ -25,7 +25,7 @@ const Login = () => {
         );
       })
       .then(() => {
-        history.push("/home");
+        history.push("/");
       })
       .catch((err) => {
         if (err.response.status === 400) {

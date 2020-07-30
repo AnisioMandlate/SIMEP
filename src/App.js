@@ -16,6 +16,7 @@ import Login from "./components/Login/Login";
 import Recover from "./components/Login/Recover";
 import RecoverPassword from "./components/Login/RecoverPassword";
 import NotFound from "./components/NotFound/NotFound";
+import ProtectedRoute from "./components/ProtectRoute";
 
 function App() {
   return (
@@ -24,19 +25,32 @@ function App() {
         <Header />
         <div className="content">
           <Switch>
-            <Route exact path="/" component={Login} />
+            <Route exact path="/login" component={Login} />
+
             <Route exact path="/recover" component={Recover} />
             <Route exact path="/recover-password" component={RecoverPassword} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/users" component={Users} />
-            <Route exact path="/users/:id" component={UserDetails} />
-            <Route exact path="/add-user" component={AddUser} />
-            <Route exact path="/buildings" component={Building} />
-            <Route exact path="/buildings/:id" component={BuildingDetails} />
-            <Route exact path="/add-building" component={AddBuilding} />
-            <Route exact path="/statistics" component={Statistic} />
-            <Route exact path="/notifications" component={Notification} />
-            <Route exact path="/profile" component={Profile} />
+            <ProtectedRoute exact path="/" component={Home} />
+            <ProtectedRoute exact path="/users" component={Users} />
+            <ProtectedRoute exact path="/users/:id" component={UserDetails} />
+            <ProtectedRoute exact path="/add-user" component={AddUser} />
+            <ProtectedRoute exact path="/buildings" component={Building} />
+            <ProtectedRoute
+              exact
+              path="/buildings/:id"
+              component={BuildingDetails}
+            />
+            <ProtectedRoute
+              exact
+              path="/add-building"
+              component={AddBuilding}
+            />
+            <ProtectedRoute exact path="/statistics" component={Statistic} />
+            <ProtectedRoute
+              exact
+              path="/notifications"
+              component={Notification}
+            />
+            <ProtectedRoute exact path="/profile" component={Profile} />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>
